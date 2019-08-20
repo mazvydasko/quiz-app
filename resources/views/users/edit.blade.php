@@ -4,6 +4,7 @@
     <div class="d-flex" id="wrapper">
         @include('adminpanel.adminSidebar')
         <div class="container">
+            @if($user)
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -44,6 +45,10 @@
                 </div>
                 <input class="btn btn-primary" type="submit" value="Update">
             </form>
+                @else
+                    <h1>No User</h1>
+                @endif
+        </div>
         </div>
     </div>
 @endsection

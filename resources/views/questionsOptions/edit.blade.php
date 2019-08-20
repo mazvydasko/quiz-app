@@ -4,6 +4,7 @@
     <div class="d-flex" id="wrapper">
         @include('adminpanel.adminSidebar')
         <div class="container">
+            @if($option)
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -46,6 +47,10 @@
                     </div>
                 </form>
             </div>
+                @else
+                    <h1>No Question Option</h1>
+                @endif
+        </div>
         </div>
     </div>
 @endsection
