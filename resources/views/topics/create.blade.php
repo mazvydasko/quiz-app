@@ -5,7 +5,15 @@
         @include('adminpanel.adminSidebar')
         <div class="container">
             <h2 align="center">Create new Quiz</h2>
-
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="form-group">
                 <form action="{{route('topics.store')}}" method="post">
                     @csrf
@@ -34,11 +42,11 @@
                             <tr>
                                 <td>
                                     <input type="text" name="question" placeholder="Iveskite klausima"
-                                           class="form-control question_list"
+                                           class="form-control question_list" required
                                     />
                                 <td>
                                     <input type="text" name="options[]" placeholder="Iveskite atsakyma"
-                                           class="form-control options_list"
+                                           class="form-control options_list" required
                                     />
                                 </td>
                                 <td>
@@ -77,7 +85,7 @@
                     '<td>' +
                     '</td>' +
                     '<td>' +
-                    '<input type="text" name="options[]" placeholder="Iveskite atsakyma" class="form-control question_list" />' +
+                    '<input type="text" name="options[]" required placeholder="Iveskite atsakyma" class="form-control question_list" />' +
                     '</td>' +
                     '<td>' +
                     '<input type="checkbox" name="correct[]" value="' + n + '" class="form-control question_list" />' +

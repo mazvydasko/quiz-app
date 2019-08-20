@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateQuestionOptionsRequest;
 use App\Options;
 use App\Question;
 use Illuminate\Http\Request;
@@ -85,7 +86,7 @@ class QuestionsOptionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateQuestionOptionsRequest $request, $id)
     {
         //
 

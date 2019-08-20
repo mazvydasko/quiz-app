@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreResultRequest;
 use App\Question;
 use App\Result;
 use App\User;
@@ -48,7 +49,7 @@ class ResultsController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreResultRequest $request)
     {
         //
         $score = 0;

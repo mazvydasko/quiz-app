@@ -4,8 +4,16 @@
     <div class="d-flex" id="wrapper">
         @include('adminpanel.adminSidebar')
         <div class="container">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <h2 align="center">Edit Option</h2>
-
             <div class="form-group">
                 <hr>
                 <form action="{{route('questionsOptions.update', $option->id)}}" method="post">
@@ -20,7 +28,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                    <textarea class="form-control options_list" name="option" id="" cols="30"
+                    <textarea required class="form-control options_list" name="option" id="" cols="30"
                               rows="10">{{$option->option}}</textarea>
                         </div>
 

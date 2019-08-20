@@ -4,6 +4,15 @@
     <div class="d-flex" id="wrapper">
         @include('adminpanel.adminSidebar')
         <div class="container">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form method="POST" action="{{route('questions.update', $question->id)}}">
                 @csrf
                 @method('put')
@@ -22,7 +31,7 @@
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label for="question_text" class="control-label">Question text</label>
-                                <textarea class="form-control " placeholder="" name="question_text" cols="50"
+                                <textarea class="form-control" required placeholder="" name="question_text" cols="50"
                                           rows="10">{{$question->question_text}}</textarea>
                             </div>
                         </div>
