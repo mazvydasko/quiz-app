@@ -4,6 +4,7 @@
     <div class="d-flex" id="wrapper">
             @include('adminpanel.adminSidebar')
         <div class="container">
+            @if($user)
             <div class="row">
                 <div class="col-md-12 mt-4">
                     <h3 class="page-title">User: {{$user->name}}</h3>
@@ -48,6 +49,10 @@
 
                 </div>
             </div>
+            @else
+                <h1>No User</h1>
+            @endif
+        </div>
         </div>
     </div>
 @endsection

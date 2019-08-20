@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        @if($topic)
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -25,6 +26,10 @@
                     </form>
                 </div>
             </div>
+            @else
+                <h1>No Topic</h1>
+            @endif
+        </div>
         </div>
     </div>
 @endsection
